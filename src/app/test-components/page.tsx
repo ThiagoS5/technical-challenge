@@ -1,13 +1,6 @@
 'use client'
 
-import { Button } from '@/components/ui/Button'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
+import { Button } from '@/components/atom/button'
 import {
   Select,
   SelectContent,
@@ -15,11 +8,23 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@/components/atom/select'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/molecules/Carousel'
 import Autoplay from 'embla-carousel-autoplay'
+import Fade from 'embla-carousel-fade'
 import { Send, SlidersHorizontal, X } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
+import { Textarea } from '../../components/atom/textarea'
+import { FloatingLabelInput } from '../../components/molecules/FloatingLabelInput'
+import { ContactForm } from '../../components/organisms/ContactForm'
+import { ExpansiveCard } from '../../components/molecules/ExpansiveCard'
 
 const heroImages = [
   { src: '/image-1.png', alt: '...' },
@@ -42,9 +47,9 @@ export default function TestComponentsPage() {
   }
 
   return (
-    <main className=" bg-neutral-100 font-sans">
+    <main className=" bg-neutral-100 font-urbanist">
       <div className=" bg-white">
-        <h1 className="mb-8 border-b pb-4 text-4xl font-bold">
+        <h1 className="mb-8 border-b pb-4 text-3xl font-bold sm:text-4xl">
           Página de Testes de Componentes
         </h1>
         {/* ============================================= */}
@@ -87,7 +92,6 @@ export default function TestComponentsPage() {
               {sendStatus === 'sent' && 'Mensagem Enviada!'}
             </Button>
           </div>
-
           <h3 className="mt-6 mb-3 text-lg font-medium">
             3. Estado Desabilitado
           </h3>
@@ -123,7 +127,6 @@ export default function TestComponentsPage() {
               </SelectContent>
             </Select>
           </div>
-
           <h3 className="mt-6 mb-3 text-lg font-medium">
             2. Select com Valor Padrão
           </h3>
@@ -153,7 +156,6 @@ export default function TestComponentsPage() {
         </section>
         {/* --- SEÇÃO DO CARROSSEL --- */}
         <h2 className="mb-6 text-2xl font-semibold">Componente: Carousel</h2>
-
         <h3 className="mb-3 text-lg font-medium">
           1. Carrossel Básico (1 slide por vez)
         </h3>
@@ -164,6 +166,7 @@ export default function TestComponentsPage() {
               delay: 4000,
               stopOnInteraction: false,
             }),
+            Fade({}),
           ]}
         >
           <CarouselContent>
@@ -171,13 +174,13 @@ export default function TestComponentsPage() {
               <CarouselItem key={index}>
                 <div className="relative aspect-video items-center justify-center overflow-hidden h-screen w-full">
                   <Image
-                    src={image.src}
                     alt={image.alt}
+                    src={image.src}
+                    priority={index === 0}
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/40" />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -191,15 +194,38 @@ export default function TestComponentsPage() {
               O seu novo lar com vista para o mar.
             </p>
           </div>
-          <section className="container mx-auto py-20">
-            <h2 className="text-center text-3xl font-bold">
-              Conheça os detalhes
-            </h2>
-            <p className="mt-4 text-center text-lg text-gray-600">
-              Aqui começa o conteúdo da sua página.
-            </p>
-          </section>
         </Carousel>
+        <section className="mb-12 mt-20">
+          <h2 className="mb-6 text-2xl font-semibold">Inputs</h2>
+          <Textarea placeholder="Textarea Padrão" className="mt-1" />
+          <FloatingLabelInput
+            label="Floating Label"
+            id="floating-label"
+            placeholder=" "
+            className="mt-1"
+          />
+        </section>
+        <section className="mb-12 mt-20">
+          <h2 className="mb-6 text-2xl font-semibold">Formulário</h2>
+          <ContactForm />
+        </section>
+        {/* ============================================= */}
+        {/* ===========Card Expansivo==================== */}
+        {/* ============================================= */}
+        <section className="mb-12 mt-20">
+          <h2 className="mb-6 text-2xl font-semibold">
+            Componente: Card Expansivo
+          </h2>
+          <ExpansiveCard
+            imageUrl="/image-1.png"
+            tag="Novo"
+            title="Apartamento Luxuoso"
+            city="São Paulo"
+            neighborhood="Jardins"
+            description="2 dormitórios, 1 suíte"
+            features="Ar-condicionado, Varanda Gourmet"
+          />
+        </section>
       </div>
     </main>
   )

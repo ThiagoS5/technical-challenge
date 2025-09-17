@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/atom/button'
 import { cn } from '@/lib/utils'
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -27,6 +27,8 @@ type CarouselContextProps = {
   scrollNext: () => void
   canScrollPrev: boolean
   canScrollNext: boolean
+  selectedIndex: number
+  slidesCount: number
 } & CarouselProps
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
@@ -52,14 +54,18 @@ function Carousel({
     {
       ...opts,
       axis: orientation === 'horizontal' ? 'x' : 'y',
+      loop: true,
     },
     plugins,
   )
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
   const [canScrollNext, setCanScrollNext] = React.useState(false)
+  const [selectedIndex, setSelectedIndex] = React.useState(0)
+  const [slidesCount, setSlidesCount] = React.useState(0)
 
   const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) return
+    setSelectedIndex(api.selectedScrollSnap())
     setCanScrollPrev(api.canScrollPrev())
     setCanScrollNext(api.canScrollNext())
   }, [])
@@ -92,8 +98,12 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
+    setSlidesCount(api.scrollSnapList().length)
     onSelect(api)
-    api.on('reInit', onSelect)
+    api.on('reInit', () => {
+      setSlidesCount(api.scrollSnapList().length)
+      onSelect(api)
+    })
     api.on('select', onSelect)
 
     return () => {
@@ -113,6 +123,8 @@ function Carousel({
         scrollNext,
         canScrollPrev,
         canScrollNext,
+        selectedIndex,
+        slidesCount,
       }}
     >
       <div
@@ -120,10 +132,14 @@ function Carousel({
         className={cn('relative', className)}
         role="region"
         aria-roledescription="carousel"
+        tabIndex={0}
         data-slot="carousel"
         {...props}
       >
         {children}
+        <span className="sr-only" aria-live="polite">
+          Slide {selectedIndex + 1} of {slidesCount}
+        </span>
       </div>
     </CarouselContext.Provider>
   )
@@ -181,8 +197,9 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        'absolute top-1/2 left-0 -translate-y-1/2 rounded-none size-25', // Posição DENTRO, quadrado e um pouco maior
-        'bg-black/50 text-white border-none hover:bg-black/80', // Estilo para bom contraste sobre a imagem
+        'absolute bottom-[-32px] left-10 -translate-y-1/2 rounded-none size-16',
+        'text-white border-none hover:bg-black/80 bg-black',
+        'sm:top-1/2 sm:size-25 sm:left-0 sm:bg-black/50',
         className,
       )}
       disabled={!canScrollPrev}
@@ -208,8 +225,10 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'absolute top-1/2 right-0 -translate-y-1/2 rounded-none size-25',
-        'bg-black/50 text-white border-none hover:bg-black/80',
+        'absolute bg-black  bottom-[-32px] left-25 -translate-y-1/2 rounded-none  size-16',
+        'text-white border-none hover:bg-black/80',
+        'sm:top-1/2 sm:size-25 sm:bg-black/50',
+        'md:right-0 md:bottom-auto md:left-auto',
         className,
       )}
       disabled={!canScrollNext}
@@ -228,6 +247,5 @@ export {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi
+  type CarouselApi,
 }
-
