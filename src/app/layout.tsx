@@ -1,3 +1,5 @@
+import { Footer } from '@/components/organisms/Footer'
+import { Header } from '@/components/organisms/Header'
 import type { Metadata, Viewport } from 'next'
 import { Urbanist } from 'next/font/google'
 import './globals.css'
@@ -27,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${urbanist.variable} antialiased`}
+        className={`${urbanist.variable} antialiased flex flex-col min-h-screen`}
         suppressHydrationWarning
       >
-        {children}
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   )

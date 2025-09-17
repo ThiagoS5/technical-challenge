@@ -18,13 +18,12 @@ import {
 } from '@/components/molecules/Carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import Fade from 'embla-carousel-fade'
-import { Send, SlidersHorizontal, X } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { Textarea } from '../../components/atom/textarea'
+import { ExpansiveCard } from '../../components/molecules/ExpansiveCard'
 import { FloatingLabelInput } from '../../components/molecules/FloatingLabelInput'
 import { ContactForm } from '../../components/organisms/ContactForm'
-import { ExpansiveCard } from '../../components/molecules/ExpansiveCard'
 
 const heroImages = [
   { src: '/image-1.png', alt: '...' },
@@ -71,22 +70,13 @@ export default function TestComponentsPage() {
             2. Estados Interativos
           </h3>
           <div className="flex flex-wrap items-center gap-4 rounded-md border p-4">
-            {/* Teste do botão de Filtro Ativo/Inativo */}
             <Button
               variant="filter"
-              state={isFilterActive ? 'active' : 'default'}
-              Icon={isFilterActive ? X : SlidersHorizontal}
               onClick={() => setIsFilterActive(!isFilterActive)}
             >
               Filtros
             </Button>
-            {/* Teste do botão de Envio com estados assíncronos */}
-            <Button
-              variant="send"
-              status={sendStatus}
-              onClick={handleSendMessage}
-              Icon={Send}
-            >
+            <Button variant="send" onClick={handleSendMessage}>
               {sendStatus === 'default' && 'Enviar Mensagem'}
               {sendStatus === 'sending' && 'Enviando...'}
               {sendStatus === 'sent' && 'Mensagem Enviada!'}
