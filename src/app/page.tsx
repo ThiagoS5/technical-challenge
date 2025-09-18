@@ -2,20 +2,12 @@
 
 import { Button } from '@/components/atom/button'
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/atom/select'
-import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from '@/components/molecules/Carousel'
-import { ExpansiveCard } from '@/components/molecules/ExpansiveCard'
 import { ContactForm } from '@/components/organisms/ContactForm'
 import Autoplay from 'embla-carousel-autoplay'
 import Fade from 'embla-carousel-fade'
@@ -213,21 +205,21 @@ export default function Home() {
               <div className="flex justify-center -space-x-4 md:justify-start mb-10">
                 <Image
                   className="inline-block size-16 rounded-full ring-2 ring-gray-900"
-                  src="https://dummyimage.com/600x400/000/fff"
+                  src="https://dummyimage.com/100x100/000/fff"
                   alt="Consultor 1"
                   width={48}
                   height={48}
                 />
                 <Image
                   className="inline-block size-16 rounded-full ring-2 ring-gray-900"
-                  src="https://dummyimage.com/600x400/000/fff"
+                  src="https://dummyimage.com/100x100/000/fff"
                   alt="Consultor 2"
                   width={48}
                   height={48}
                 />
                 <Image
                   className="inline-block size-16 rounded-full ring-2 ring-gray-900"
-                  src="https://dummyimage.com/600x400/000/fff"
+                  src="https://dummyimage.com/100x100/000/fff"
                   alt="Consultor 3"
                   width={48}
                   height={48}

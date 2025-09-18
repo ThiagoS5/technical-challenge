@@ -14,7 +14,7 @@ export function Footer() {
               alt="Liva Logo"
               width={120}
               height={40}
-              className="mb-4"
+              className="mb-4 h-10"
             />
             <p className="text-sm mr-15 md:mr-0">
               Duis aute irure dolor in reprehenderit in voluptate velit esse

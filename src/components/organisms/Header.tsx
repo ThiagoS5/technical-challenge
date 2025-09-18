@@ -30,7 +30,8 @@ export function Header() {
             alt="Liva empreendimentos"
             width={100}
             height={43}
-            className="cursor-pointer"
+            className="cursor-pointer h-10 w-auto"
+            priority={true}
           />
         </Link>
 
@@ -131,6 +132,8 @@ export function Header() {
               alt="Liva empreendimentos"
               width={100}
               height={43}
+              priority={true}
+              className="h-10 w-auto"
             />
           </Link>
           <Button
@@ -221,7 +224,7 @@ export function Header() {
         </nav>
         <div className="border-t pt-6">
           <a
-            href="https://wa.me/SEUNUMERO"
+            href="https://wa.me/+5516996517844"
             target="_blank"
             rel="noopener noreferrer"
             className="block"
