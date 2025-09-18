@@ -43,12 +43,12 @@ export function Header() {
             </li>
             <li>
               <Button variant="link" asChild>
-                <Link href="/sobre">SOBRE A LIVA</Link>
+                <Link href="#about">SOBRE A LIVA</Link>
               </Button>
             </li>
             <li>
               <Button variant="link" asChild>
-                <Link href="/empreendimentos">EMPREENDIMENTOS</Link>
+                <Link href="#properties">EMPREENDIMENTOS</Link>
               </Button>
             </li>
             <li>
@@ -58,7 +58,7 @@ export function Header() {
             </li>
             <li>
               <Button variant="link" asChild>
-                <Link href="/contato">CONTATO</Link>
+                <Link href="#contact">CONTATO</Link>
               </Button>
             </li>
           </ul>
@@ -161,7 +161,7 @@ export function Header() {
                 asChild
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Link href="/sobre">SOBRE A LIVA</Link>
+                <Link href="#about">SOBRE A LIVA</Link>
               </Button>
             </li>
             <li>
@@ -171,7 +171,7 @@ export function Header() {
                 asChild
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Link href="/empreendimentos">EMPREENDIMENTOS</Link>
+                <Link href="#properties">EMPREENDIMENTOS</Link>
               </Button>
             </li>
             <li>
@@ -191,7 +191,7 @@ export function Header() {
                 asChild
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Link href="/contato">CONTATO</Link>
+                <Link href="#contact">CONTATO</Link>
               </Button>
             </li>
           </ul>

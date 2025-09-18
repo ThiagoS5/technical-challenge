@@ -20,6 +20,7 @@ interface ExpansiveCardProps {
 
 export function ExpansiveCard({
   imageUrl,
+  altText,
   status,
   title,
   city,
@@ -40,7 +41,7 @@ export function ExpansiveCard({
     >
       <Image
         src={imageUrl}
-        alt={title}
+        alt={altText}
         fill
         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
       />
@@ -81,3 +82,4 @@ export function ExpansiveCard({
     </Card>
   )
 }
+

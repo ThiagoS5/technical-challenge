@@ -103,9 +103,15 @@ export default function Home() {
   ]
 
   const heroImages = [
-    { src: '/image-1.png', alt: 'Varanda gourmet moderna com churrasqueira embutida, bancada de mármore e guarda-corpo de vidro com vista ampla para o mar.' },
-    { src: '/image-2.png', alt: 'Imagem de outro empreendimento imobiliário' },
-    { src: '/image-3.png', alt: 'Imagem de um terceiro empreendimento imobiliário' },
+    {
+      src: '/image-1.png',
+      alt: 'Varanda gourmet moderna com churrasqueira embutida, bancada de mármore e guarda-corpo de vidro com vista ampla para o mar.',
+    },
+    { src: '/image-2.png', alt: 'Varanda com vista para o mar' },
+    {
+      src: '/image-3.png',
+      alt: 'Borda de uma piscina de borda infinita com vista para o mar, com coqueiros e um guarda-sol ao lado em um dia ensolarado.',
+    },
   ]
 
   const visibleCards = showMore ? cards : cards.slice(0, 4)
@@ -189,7 +195,10 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <section id="contact" className="relative bg-[var(--bg-form)] text-white pr-4 pl-4 md:pt-15 md:pl-40 ">
+      <section
+        id="contact"
+        className="relative bg-[var(--bg-form)] text-white pr-4 pl-4 md:pt-15 md:pl-40 "
+      >
         <div className="container pl-4 pr-4 pb-15 md:w-8xl grid grid-cols-1 items-center gap-12 px-4 md:grid-cols-2 lg:gap-20">
           <div className="space-y-4 text-left pt-20">
             <h2 className="text-4xl font-semibold lg:text-5xl ">
