@@ -103,9 +103,9 @@ export default function Home() {
   ]
 
   const heroImages = [
-    { src: '/image-1.png', alt: '...' },
-    { src: '/image-2.png', alt: '...' },
-    { src: '/image-3.png', alt: '...' },
+    { src: '/image-1.png', alt: 'Varanda gourmet moderna com churrasqueira embutida, bancada de mármore e guarda-corpo de vidro com vista ampla para o mar.' },
+    { src: '/image-2.png', alt: 'Imagem de outro empreendimento imobiliário' },
+    { src: '/image-3.png', alt: 'Imagem de um terceiro empreendimento imobiliário' },
   ]
 
   const visibleCards = showMore ? cards : cards.slice(0, 4)
@@ -113,6 +113,7 @@ export default function Home() {
   return (
     <main>
       <Carousel
+        id="home"
         className="h-svh"
         plugins={[
           Autoplay({
@@ -158,7 +159,7 @@ export default function Home() {
         </div>
       </Carousel>
       <div className="px-4 sm:px-6 lg:px-8">
-        <section className="container mx-auto py-16 px-4">
+        <section id="about" className="container mx-auto py-16 px-4">
           <div className="flex flex-col items-center md:flex-row md:items-start md:space-x-8">
             <div className="hidden md:block md:pr-50">
               <Image
@@ -188,7 +189,7 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <section className="relative bg-[var(--bg-form)] text-white pr-4 pl-4 md:pt-15 md:pl-40 ">
+      <section id="contact" className="relative bg-[var(--bg-form)] text-white pr-4 pl-4 md:pt-15 md:pl-40 ">
         <div className="container pl-4 pr-4 pb-15 md:w-8xl grid grid-cols-1 items-center gap-12 px-4 md:grid-cols-2 lg:gap-20">
           <div className="space-y-4 text-left pt-20">
             <h2 className="text-4xl font-semibold lg:text-5xl ">
@@ -261,7 +262,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div id="properties" className="px-4 sm:px-6 lg:px-8">
         <PropertyListing />
       </div>
     </main>

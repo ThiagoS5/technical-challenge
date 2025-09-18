@@ -107,6 +107,7 @@ export function PropertyListing() {
           <ExpansiveCard
             key={property.id}
             imageUrl={property.imageUrl}
+            altText={property.altText}
             title={property.title}
             city={property.city}
             neighborhood={property.neighborhood}

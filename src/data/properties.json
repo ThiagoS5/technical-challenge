@@ -8,7 +8,8 @@
     "neighborhood": "Jardim Botânico",
     "description": "3 dormitórios, sendo 1 suíte",
     "features": "2 vagas de garagem",
-    "type": "Apartamento"
+    "type": "Apartamento",
+    "altText": "Amplo salão de convivência com mesas redondas, cadeiras de design e lustres modernos, com uma brinquedoteca visível ao fundo através de uma parede de vidro."
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
     "neighborhood": "Centro",
     "description": "2 dormitórios, varanda gourmet",
     "features": "1 vaga de garagem",
-    "type": "Apartamento"
+    "type": "Apartamento",
+    "altText": "Imagem de um apartamento moderno."
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
     "neighborhood": "Alphaville",
     "description": "4 suítes, lazer completo",
     "features": "3 vagas de garagem",
-    "type": "Casa"
+    "type": "Casa",
+    "altText": "Imagem de uma casa em condomínio."
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@
     "neighborhood": "Cambuí",
     "description": "Apartamento de alto padrão",
     "features": "Piscina privativa",
-    "type": "Apartamento"
+    "type": "Apartamento",
+    "altText": "Salão de festas espaçoso com pé-direito duplo, grandes janelas de vidro e vista para a área de lazer externa do condomínio."
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
     "neighborhood": "Bonfim Paulista",
     "description": "Casa em condomínio fechado",
     "features": "Área verde preservada",
-    "type": "Casa"
+    "type": "Casa",
+    "altText": "Quarto de casal moderno e bem iluminado, com uma grande janela de vidro oferecendo uma vista panorâmica para o oceano."
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@
     "neighborhood": "São Joaquim",
     "description": "Lofts modernos e integrados",
     "features": "Portaria 24h",
-    "type": "Apartamento"
+    "type": "Apartamento",
+    "altText": "Piscina coberta e aquecida com uma grande janela de vidro com vista para a cidade e parede com revestimento de pedra."
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@
     "neighborhood": "Iguatemi",
     "description": "2 dormitórios com suíte",
     "features": "Próximo ao shopping",
-    "type": "Apartamento"
+    "type": "Apartamento",
+    "altText": "Piscina com raia em um terraço na cobertura, com espreguiçadeiras e vista para o mar e uma montanha ao fundo."
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@
     "neighborhood": "Gramado",
     "description": "Terrenos a partir de 500m²",
     "features": "Clube completo",
-    "type": "Terreno"
+    "type": "Terreno",
+    "altText": "Vista noturna da orla de uma cidade litorânea, com arranha-céus iluminados e um prédio em destaque com um feixe de luz no topo."
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@
     "neighborhood": "Recreio das Acácias",
     "description": "3 dormitórios com lazer",
     "features": "Quadra poliesportiva",
-    "type": "Casa"
+    "type": "Casa",
+    "altText": "Suíte master com closet integrado e paredes de vidro do chão ao teto, com vista deslumbrante da praia e da cidade."
   },
   {
     "id": 10,
@@ -107,6 +116,7 @@
     "neighborhood": "Jardim Aeroporto",
     "description": "2 dormitórios, Minha Casa Minha Vida",
     "features": "Subsídio do governo",
-    "type": "Apartamento"
+    "type": "Apartamento",
+    "altText": "Imagem de um empreendimento Golden Park."
   }
 ]

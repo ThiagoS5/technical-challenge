@@ -9,6 +9,7 @@ import { useState } from 'react'
 
 interface ExpansiveCardProps {
   imageUrl: string
+  altText: string
   status: string
   title: string
   city: string
