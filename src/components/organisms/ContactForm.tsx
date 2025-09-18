@@ -11,6 +11,7 @@ import {
 import { cn } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { isValidPhoneNumber } from 'libphonenumber-js'
+import { useState } from 'react'
 import { useForm, type FieldErrors } from 'react-hook-form'
 import { z } from 'zod'
 import { FloatingLabelInput } from '../molecules/FloatingLabelInput'
@@ -34,6 +35,9 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>
 
 export function ContactForm() {
+  const [sendStatus, setSendStatus] = useState<'default' | 'sending' | 'sent'>(
+    'default',
+  )
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,8 +52,14 @@ export function ContactForm() {
   const { errors, dirtyFields, isValidating } = form.formState
 
   function onValid(values: FormSchema) {
+    setSendStatus('sending')
+    setTimeout(() => {
+      setSendStatus('sent')
+      setTimeout(() => setSendStatus('default'), 3000)
+    }, 2000)
     console.log(values)
     alert('Formulário enviado com sucesso!')
+    form.reset()
   }
 
   function onInvalid(errors: FieldErrors<FormSchema>) {
@@ -78,7 +88,7 @@ export function ContactForm() {
                   id="name"
                   label="Nome"
                   {...field}
-                  className={cn({
+                  className={cn('w-full', {
                     'border-red-500 focus-visible:ring-red-500': errors.name,
                     'border-green-500 focus-visible:ring-green-500':
                       isFieldValid('name'),
@@ -99,7 +109,7 @@ export function ContactForm() {
                   id="email"
                   label="Email"
                   {...field}
-                  className={cn({
+                  className={cn('w-full', {
                     'border-red-500 focus-visible:ring-red-500': errors.email,
                     'border-green-500 focus-visible:ring-green-500':
                       isFieldValid('email'),
@@ -120,7 +130,7 @@ export function ContactForm() {
                   id="phone"
                   label="Telefone"
                   {...field}
-                  className={cn({
+                  className={cn('w-full', {
                     'border-red-500 focus-visible:ring-red-500': errors.phone,
                     'border-green-500 focus-visible:ring-green-500':
                       isFieldValid('phone'),
@@ -140,7 +150,7 @@ export function ContactForm() {
                 <FloatingLabelTextarea
                   id="message"
                   label="Mensagem"
-                  className={cn({
+                  className={cn('w-full', {
                     'resize-none': true,
                     'border-red-500 focus-visible:ring-red-500': errors.message,
                   })}
@@ -151,7 +161,16 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Enviar Mensagem</Button>
+        <Button
+          type="submit"
+          variant="send"
+          disabled={sendStatus === 'sending'}
+          className="w-full"
+        >
+          {sendStatus === 'default' && 'Enviar Mensagem'}
+          {sendStatus === 'sending' && 'Enviando...'}
+          {sendStatus === 'sent' && 'Mensagem Enviada!'}
+        </Button>
       </form>
     </Form>
   )

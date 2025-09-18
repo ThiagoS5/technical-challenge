@@ -52,6 +52,8 @@
   --radius: 0.5rem;
   --send: oklch(64.52% 0.121 171.16);
   --send-success: oklch(77.72% 0.087 176.66);
+  --badge: oklch(0.9418 0.0965 125.68);
+  --bg-form: oklch(0.162 0.0238 174.68);
 }
 
 @layer base {

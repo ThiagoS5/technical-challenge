@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Infinity Coast",
+    "status": "PRÉ LANÇAMENTO",
+    "imageUrl": "/card-1.png",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Jardim Botânico",
+    "description": "3 dormitórios, sendo 1 suíte",
+    "features": "2 vagas de garagem",
+    "type": "Apartamento"
+  },
+  {
+    "id": 2,
+    "title": "Skyline Tower",
+    "status": "EM OBRAS",
+    "imageUrl": "/card-2.png",
+    "city": "Franca",
+    "neighborhood": "Centro",
+    "description": "2 dormitórios, varanda gourmet",
+    "features": "1 vaga de garagem",
+    "type": "Apartamento"
+  },
+  {
+    "id": 3,
+    "title": "Horizonte Residence",
+    "status": "PRÉ LANÇAMENTO",
+    "imageUrl": "/card-3.png",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Alphaville",
+    "description": "4 suítes, lazer completo",
+    "features": "3 vagas de garagem",
+    "type": "Casa"
+  },
+  {
+    "id": 4,
+    "title": "One Tower",
+    "status": "EM OBRAS",
+    "imageUrl": "/card-4.png",
+    "city": "Campinas",
+    "neighborhood": "Cambuí",
+    "description": "Apartamento de alto padrão",
+    "features": "Piscina privativa",
+    "type": "Apartamento"
+  },
+  {
+    "id": 5,
+    "title": "Eco Village",
+    "status": "PRONTO PARA MORAR",
+    "imageUrl": "/card-5.png",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Bonfim Paulista",
+    "description": "Casa em condomínio fechado",
+    "features": "Área verde preservada",
+    "type": "Casa"
+  },
+  {
+    "id": 6,
+    "title": "Marina Bay",
+    "status": "EM OBRAS",
+    "imageUrl": "/card-6.png",
+    "city": "Franca",
+    "neighborhood": "São Joaquim",
+    "description": "Lofts modernos e integrados",
+    "features": "Portaria 24h",
+    "type": "Apartamento"
+  },
+  {
+    "id": 7,
+    "title": "Solaris Prime",
+    "status": "PRÉ LANÇAMENTO",
+    "imageUrl": "/card-7.png",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Iguatemi",
+    "description": "2 dormitórios com suíte",
+    "features": "Próximo ao shopping",
+    "type": "Apartamento"
+  },
+  {
+    "id": 8,
+    "title": "Terras Altas",
+    "status": "EM OBRAS",
+    "imageUrl": "/card-8.png",
+    "city": "Campinas",
+    "neighborhood": "Gramado",
+    "description": "Terrenos a partir de 500m²",
+    "features": "Clube completo",
+    "type": "Terreno"
+  },
+  {
+    "id": 9,
+    "title": "Vila dos Pássaros",
+    "status": "PRONTO PARA MORAR",
+    "imageUrl": "/card-9.png",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Recreio das Acácias",
+    "description": "3 dormitórios com lazer",
+    "features": "Quadra poliesportiva",
+    "type": "Casa"
+  },
+  {
+    "id": 10,
+    "title": "Golden Park",
+    "status": "PRÉ LANÇAMENTO",
+    "imageUrl": "/card-10.png",
+    "city": "Franca",
+    "neighborhood": "Jardim Aeroporto",
+    "description": "2 dormitórios, Minha Casa Minha Vida",
+    "features": "Subsídio do governo",
+    "type": "Apartamento"
+  }
+]

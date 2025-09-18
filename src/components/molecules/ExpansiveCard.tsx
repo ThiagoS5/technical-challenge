@@ -2,13 +2,14 @@
 
 import { Badge } from '@/components/atom/badge'
 import { Card } from '@/components/atom/card'
+import { cn } from '@/lib/utils'
 import { BedDouble, Building2 } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 
 interface ExpansiveCardProps {
   imageUrl: string
-  tag: string
+  status: string
   title: string
   city: string
   neighborhood: string
@@ -18,7 +19,7 @@ interface ExpansiveCardProps {
 
 export function ExpansiveCard({
   imageUrl,
-  tag,
+  status,
   title,
   city,
   neighborhood,
@@ -33,64 +34,46 @@ export function ExpansiveCard({
 
   return (
     <Card
-      className="relative w-full max-w-sm h-96 overflow-hidden rounded-lg shadow-lg cursor-pointer group"
+      className="relative h-96 w-full max-w-sm cursor-pointer overflow-hidden rounded-lg shadow-lg group"
       onClick={toggleExpand}
     >
       <Image
         src={imageUrl}
         alt={title}
-        layout="fill"
+        fill
         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
       />
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      />
-
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-      <div
-        className={`absolute bottom-0 left-0 p-6 w-full transition-opacity duration-300 ${
-          isExpanded ? 'opacity-0' : 'opacity-100'
-        }`}
-      >
+      <div className="absolute bottom-0 left-0 w-full p-6 text-white">
         <Badge variant="secondary" className="mb-4 bg-white/90 text-black">
-          {tag}
+          {status}
         </Badge>
-        <h2 className="text-3xl font-bold text-white">{title}</h2>
-      </div>
-
-      <div
-        className={`absolute inset-0 p-6 flex flex-col justify-end bg-black/70 transition-opacity duration-300 ${
-          isExpanded ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <Badge
-          variant="secondary"
-          className="mb-4 bg-white/90 text-black w-fit"
+        <h2 className="text-3xl font-bold">{title}</h2>
+        <div
+          className={cn(
+            'mt-4 space-y-4 transition-all duration-300 ease-in-out',
+            isExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0',
+          )}
         >
-          {tag}
-        </Badge>
-        <h2 className="text-3xl font-bold text-white">{title}</h2>
-
-        <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-white/90">
-          <div>
-            <p className="text-xs font-light">Cidade</p>
-            <p className="font-semibold">{city}</p>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-white/90">
+            <div>
+              <p className="text-xs font-light">Cidade</p>
+              <p className="font-semibold">{city}</p>
+            </div>
+            <div>
+              <p className="text-xs font-light">Bairro</p>
+              <p className="font-semibold">{neighborhood}</p>
+            </div>
           </div>
-          <div>
-            <p className="text-xs font-light">Bairro</p>
-            <p className="font-semibold">{neighborhood}</p>
-          </div>
-        </div>
-        <div className="mt-6 space-y-3 text-white">
-          <div className="flex items-center gap-3">
-            <BedDouble size={20} />
-            <span>{description}</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <Building2 size={20} />
-            <span>{features}</span>
+          <div className="space-y-3 text-white">
+            <div className="flex items-center gap-3">
+              <BedDouble size={20} color="#76C9B5" />
+              <span>{description}</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Building2 size={20} color="#76C9B5" />
+              <span>{features}</span>
+            </div>
           </div>
         </div>
       </div>
