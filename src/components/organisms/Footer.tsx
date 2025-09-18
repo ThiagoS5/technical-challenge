@@ -33,7 +33,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/sobre"
+                  href="#about"
                   className="hover:text-white hover:underline"
                 >
                   SOBRE A LIVA
@@ -41,7 +41,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/empreendimentos"
+                  href="#properties"
                   className="hover:text-white hover:underline"
                 >
                   EMPREENDIMENTOS
@@ -57,7 +57,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contato"
+                  href="#contact"
                   className="hover:text-white hover:underline"
                 >
                   CONTATO
@@ -71,7 +71,7 @@ export function Footer() {
             </h3>
             <div className="flex items-center space-x-3">
               <a
-                href="#"
+                href="https://facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex size-8 items-center justify-center rounded-full border border-white text-white transition-colors hover:bg-white hover:text-black"
@@ -79,7 +79,7 @@ export function Footer() {
                 <Facebook size={16} />
               </a>
               <a
-                href="#"
+                href="https://instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex size-8 items-center justify-center rounded-full border border-white text-white transition-colors hover:bg-white hover:text-black"
@@ -96,7 +96,7 @@ export function Footer() {
             <p className="font-semibold text-white">(99) 9999-9999</p>
             <p className="font-semibold text-white">contato@liva.com.br</p>
             <a
-              href="https://wa.me/SEUNUMERO"
+              href="https://wa.me/+5516996517844"
               target="_blank"
               rel="noopener noreferrer"
               className="block"
