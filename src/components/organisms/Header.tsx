@@ -54,7 +54,7 @@ export function Header() {
             </li>
             <li>
               <Button variant="link" asChild>
-                <Link href="/noticias">NOTÍCIAS</Link>
+                <Link href="#contact">NOTÍCIAS</Link>
               </Button>
             </li>
             <li>

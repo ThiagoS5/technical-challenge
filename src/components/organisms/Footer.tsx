@@ -49,7 +49,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/noticias"
+                  href="#contact"
                   className="hover:text-white hover:underline"
                 >
                   NOTÍCIAS
