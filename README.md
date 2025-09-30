@@ -36,8 +36,6 @@ Este projeto foi construído com um conjunto de tecnologias modernas e robustas,
 - **Qualidade de Código:**
   - **Linter:** [ESLint](https://eslint.org/)
   - **Formatter:** [Prettier](https://prettier.io/)
-- **Infraestrutura e Deploy:**
-  - **Plataforma:** [Vercel](https://vercel.com/)
 
 ## 📂 Estrutura do Projeto
 
