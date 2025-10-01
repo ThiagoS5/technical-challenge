@@ -1,4 +1,4 @@
-# 🏡 Liva Empreendimentos: Uma Jornada Front-End
+# 🏡 Liva Empreendimentos: Desafio Técnico
 
 ![Banner da Aplicação](https://dummyimage.com/1200x600/282a36/ffffff.png&text=Liva+Empreendimentos)
 
@@ -8,7 +8,7 @@
 
 ## 🚀 Sobre o Projeto
 
-**Liva Empreendimentos** é uma aplicação web moderna e responsiva, desenvolvida como um desafio técnico para demonstrar a construção de uma interface rica e acessível utilizando as tecnologias mais recentes do ecossistema React.
+**Liva Empreendimentos** é uma aplicação web moderna e responsiva, desenvolvida como um desafio técnico para demonstrar a construção de uma interface rica e acessível utilizando React com o prazo de desenvolvimento de 2(dois) dias.
 
 O projeto foi criado do zero, com foco na qualidade de código, acessibilidade (a11y) e na criação de uma biblioteca de componentes reutilizáveis, seguindo as melhores práticas de desenvolvimento Front-End.
 
