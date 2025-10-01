@@ -54,7 +54,7 @@ export function Header() {
             </li>
             <li>
               <Button variant="link" asChild>
-                <Link href="#contact">NOTÍCIAS</Link>
+                <Link href="#properties">NOTÍCIAS</Link>
               </Button>
             </li>
             <li>
@@ -184,7 +184,7 @@ export function Header() {
                 asChild
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Link href="/noticias">NOTÍCIAS</Link>
+                <Link href="#properties">NOTÍCIAS</Link>
               </Button>
             </li>
             <li>

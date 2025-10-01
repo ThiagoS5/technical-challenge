@@ -36,6 +36,9 @@ Este projeto foi construído com um conjunto de tecnologias modernas e robustas,
 - **Qualidade de Código:**
   - **Linter:** [ESLint](https://eslint.org/)
   - **Formatter:** [Prettier](https://prettier.io/)
+- **Testes:**
+  - **Framework de Testes:** [Jest](https://jestjs.io/)
+  - **Testes de Componentes:** [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ## 📂 Estrutura do Projeto
 
