@@ -16,7 +16,6 @@ import { useState } from 'react'
 import { PropertyListing } from '../components/organisms/PropertyListing'
 
 export default function Home() {
-  const [showFilters, setShowFilters] = useState(false)
   const [showMore, setShowMore] = useState(false)
 
   const cards = [
@@ -138,7 +137,7 @@ export default function Home() {
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
-        <div className="absolute inset-0 flex flex-col items-start justify-center p-8 text-left text-white md:p-16">
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-start justify-center p-8 text-left text-white md:p-16">
           <p className="text-sm font-bold uppercase tracking-widest">
             Pré lançamento
           </p>
