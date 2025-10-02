@@ -16,7 +16,7 @@ import { useState } from 'react'
 import { PropertyListing } from '../components/organisms/PropertyListing'
 
 export default function Home() {
-  const [showMore, setShowMore] = useState(false)
+  const [showMore] = useState(false)
 
   const cards = [
     {
@@ -104,8 +104,6 @@ export default function Home() {
       alt: 'Borda de uma piscina de borda infinita com vista para o mar, com coqueiros e um guarda-sol ao lado em um dia ensolarado.',
     },
   ]
-
-  const visibleCards = showMore ? cards : cards.slice(0, 4)
 
   return (
     <main>

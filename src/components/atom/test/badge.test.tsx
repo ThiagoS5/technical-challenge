@@ -1,47 +1,48 @@
 import * as React from 'react'
 import { render, screen } from '@testing-library/react'
-import { Badge, badgeVariants } from '../badge'
-import { cva } from 'class-variance-authority'
+import { Badge } from '../badge'
+import '@testing-library/jest-dom'
 
 describe('Badge component', () => {
-  test('renders with default variant', () => {
-    render(<Badge>Default Badge</Badge>)
-    const badgeElement = screen.getByText('Default Badge')
-    expect(badgeElement).toBeInTheDocument()
-    expect(badgeElement).toHaveClass(
-      'border-transparent',
-      'bg-primary',
-      'text-primary-foreground',
-    )
-  })
+  describe('variants', () => {
+    const variants = [
+      {
+        variant: 'default' as const,
+        expectedClasses: [
+          'border-transparent',
+          'bg-primary',
+          'text-primary-foreground',
+        ],
+      },
+      {
+        variant: 'secondary' as const,
+        expectedClasses: [
+          'border-transparent',
+          'bg-secondary',
+          'text-secondary-foreground',
+        ],
+      },
+      {
+        variant: 'destructive' as const,
+        expectedClasses: ['border-transparent', 'bg-destructive', 'text-white'],
+      },
+      {
+        variant: 'outline' as const,
+        expectedClasses: ['text-foreground'],
+      },
+    ]
 
-  test('renders with secondary variant', () => {
-    render(<Badge variant="secondary">Secondary Badge</Badge>)
-    const badgeElement = screen.getByText('Secondary Badge')
-    expect(badgeElement).toBeInTheDocument()
-    expect(badgeElement).toHaveClass(
-      'border-transparent',
-      'bg-secondary',
-      'text-secondary-foreground',
+    test.each(variants)(
+      'applies the $variant variant styles',
+      ({ variant, expectedClasses }) => {
+        render(<Badge variant={variant}>{variant}</Badge>)
+        const badgeElement = screen.getByText(variant!)
+        expect(badgeElement).toBeInTheDocument()
+        expectedClasses.forEach((expectedClass) => {
+          expect(badgeElement).toHaveClass(expectedClass)
+        })
+      },
     )
-  })
-
-  test('renders with destructive variant', () => {
-    render(<Badge variant="destructive">Destructive Badge</Badge>)
-    const badgeElement = screen.getByText('Destructive Badge')
-    expect(badgeElement).toBeInTheDocument()
-    expect(badgeElement).toHaveClass(
-      'border-transparent',
-      'bg-destructive',
-      'text-white',
-    )
-  })
-
-  test('renders with outline variant', () => {
-    render(<Badge variant="outline">Outline Badge</Badge>)
-    const badgeElement = screen.getByText('Outline Badge')
-    expect(badgeElement).toBeInTheDocument()
-    expect(badgeElement).toHaveClass('text-foreground')
   })
 
   test('renders as a child component when asChild is true', () => {

@@ -59,11 +59,14 @@ describe('Button component', () => {
       { size: 'icon' as const, expectedClass: 'h-10 w-10' },
     ]
 
-    test.each(sizes)('applies the $size size styles', ({ size, expectedClass }) => {
-      render(<Button size={size}>{size}</Button>)
-      const buttonElement = screen.getByRole('button', { name: size })
-      expect(buttonElement).toHaveClass(expectedClass)
-    })
+    test.each(sizes)(
+      'applies the $size size styles',
+      ({ size, expectedClass }) => {
+        render(<Button size={size}>{size}</Button>)
+        const buttonElement = screen.getByRole('button', { name: size })
+        expect(buttonElement).toHaveClass(expectedClass)
+      },
+    )
   })
 
   test('calls onClick when clicked', async () => {

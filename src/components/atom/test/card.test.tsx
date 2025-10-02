@@ -1,81 +1,36 @@
-import * as React from 'react'
+import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import {
   Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
   CardAction,
-  CardDescription,
   CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
 } from '../card'
 
 describe('Card Components', () => {
-  test('renders Card', () => {
-    render(
-      <Card>
-        <div>Child Content</div>
-      </Card>,
-    )
-    expect(screen.getByText('Child Content')).toBeInTheDocument()
-  })
+  const components = [
+    { name: 'Card', Component: Card },
+    { name: 'CardHeader', Component: CardHeader },
+    { name: 'CardFooter', Component: CardFooter },
+    { name: 'CardTitle', Component: CardTitle },
+    { name: 'CardAction', Component: CardAction },
+    { name: 'CardDescription', Component: CardDescription },
+    { name: 'CardContent', Component: CardContent },
+  ]
 
-  test('renders CardHeader', () => {
-    render(
-      <CardHeader>
-        <div>Header Content</div>
-      </CardHeader>,
-    )
-    expect(screen.getByText('Header Content')).toBeInTheDocument()
-  })
-
-  test('renders CardTitle', () => {
-    render(
-      <CardTitle>
-        <div>Title Content</div>
-      </CardTitle>,
-    )
-    expect(screen.getByText('Title Content')).toBeInTheDocument()
-  })
-
-  test('renders CardDescription', () => {
-    render(
-      <CardDescription>
-        <div>Description Content</div>
-      </CardDescription>,
-    )
-    expect(screen.getByText('Description Content')).toBeInTheDocument()
-  })
-
-  test('renders CardAction', () => {
-    render(
-      <CardAction>
-        <div>Action Content</div>
-      </CardAction>,
-    )
-    expect(screen.getByText('Action Content')).toBeInTheDocument()
-  })
-
-  test('renders CardContent', () => {
-    render(
-      <CardContent>
-        <div>Content</div>
-      </CardContent>,
-    )
-    expect(screen.getByText('Content')).toBeInTheDocument()
-  })
-
-  test('renders CardFooter', () => {
-    render(
-      <CardFooter>
-        <div>Footer Content</div>
-      </CardFooter>,
-    )
-    expect(screen.getByText('Footer Content')).toBeInTheDocument()
-  })
-
-  test('applies custom className to Card', () => {
-    const { container } = render(<Card className="custom-class" />)
-    expect(container.firstChild).toHaveClass('custom-class')
-  })
+  test.each(components)(
+    'renders $name and applies custom className',
+    ({ Component }) => {
+      const { container } = render(
+        <Component className="custom-class">
+          <div>Child Content</div>
+        </Component>,
+      )
+      expect(screen.getByText('Child Content')).toBeInTheDocument()
+      expect(container.firstChild).toHaveClass('custom-class')
+    },
+  )
 })

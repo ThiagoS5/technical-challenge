@@ -1,20 +1,21 @@
-import * as React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { Button } from '../button'
 import {
   Form,
+  FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
-  FormDescription,
   FormMessage,
   useFormField,
 } from '../form'
 import { Input } from '../Input'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Button } from '../button'
 
 const TestForm = () => {
   const form = useForm({
@@ -59,7 +60,7 @@ const TestFormWithError = () => {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {}
+  function onSubmit() {}
 
   return (
     <Form {...form}>
@@ -85,14 +86,13 @@ const TestFormWithError = () => {
 }
 
 const ComponentThatUsesHookOutsideContext = () => {
-  const { error, formItemId } = useFormField()
+  const { error } = useFormField()
   return <FormLabel className={error && 'text-destructive'}>Label</FormLabel>
 }
 
 describe('Form Components', () => {
   it('renders the form with all its parts', () => {
     render(<TestForm />)
-
     expect(screen.getByLabelText('Test Label')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('Test Input')).toBeInTheDocument()
     expect(screen.getByText('This is a test description.')).toBeInTheDocument()
@@ -102,7 +102,7 @@ describe('Form Components', () => {
     render(<TestFormWithError />)
 
     const submitButton = screen.getByRole('button', { name: /submit/i })
-    fireEvent.click(submitButton)
+    await userEvent.click(submitButton)
 
     const errorMessage = await screen.findByText('Test error message.')
     expect(errorMessage).toBeInTheDocument()
@@ -142,7 +142,6 @@ describe('Form Components', () => {
       )
     }
     render(<TestComponent />)
-
     expect(screen.getByText('Child element')).toBeInTheDocument()
   })
 })
